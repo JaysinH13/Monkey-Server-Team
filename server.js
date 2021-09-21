@@ -18,10 +18,6 @@ app.get('/second', (req, res) => {
   res.send('Joe Biden')
 });
 
-app.get('/joe', (req,res) => {
-  res.send('Joe')
-});
-
 app.listen(port, () => {
   console.log(`Success! Your application is running on port ${port}.`);
 });
