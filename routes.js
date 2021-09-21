@@ -5,6 +5,6 @@ const basic = require('./controllers/BasicController.js');
 
 router.get('/', basic.home);
 router.get('/second', basic.second);
-router.get('/joe', basic.joe);
+router.get('/Rodrick', basic.Rodrick);
 
 module.exports = router;
