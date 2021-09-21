@@ -5,7 +5,13 @@ module.exports = {
   second: (req, res) => {
     res.render('second');
   },
-  joe: (req, res) => {
-    res.render('joe');
+  jaysin: (req, res) => {
+    res.render('jaysin');
+  },
+  oley: (req, res) => {
+    res.render('oley');
+  },
+  john: (req, res) => {
+    res.render('john');
   },
 };
