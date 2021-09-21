@@ -5,7 +5,7 @@ module.exports = {
   second: (req, res) => {
     res.render('second');
   },
-  Joe: (req, res) => {
-    res.render('Joe');
+  joe: (req, res) => {
+    res.render('joe');
   },
 };
