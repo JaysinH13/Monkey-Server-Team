@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+app.engine('pug', require('pug').__express)
 
 const basic = require('./controllers/BasicController.js');
 
