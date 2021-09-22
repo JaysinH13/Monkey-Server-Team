@@ -1,23 +1,15 @@
-const express = require('express');
-const bodyParser = require('body-parser');
+const express = require("express");
 const app = express();
 const port = 42069;
 
+app.use('/', require('./index.js'));
+app.use('/about', require('./index.js'));
+app.use('/john', require('./index.js'));
+app.use('/jaysin', require('./index.js'));
+app.use('/oley', require('./index.js'));
+app.use('/rodrick', require('./index.js'));
+app.use("/static", express.static('./static/'));
 
-app.set('view engine', 'pug');
-
-
-app.use(bodyParser.urlencoded({extended: false}));
-app.use('/', require('./routes'));
-// Set up home route
-app.get('/', (req, res) => {
-  res.send('This is the homepage');
-});
-// Set up second page
-app.get('/second', (req, res) => {
-  res.send('Joe Biden')
-});
-
-app.listen(port, () => {
-  console.log(`Success! Your application is running on port ${port}.`);
+app.listen(port,() => {
+  console.log('Success! Your server is now running');
 });

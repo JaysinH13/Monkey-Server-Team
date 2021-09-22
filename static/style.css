@@ -1,0 +1,51 @@
+.button {
+  margin-top: 50px;
+text-align: center;
+}
+
+h1 {
+  text-align: center;
+  color: grey;
+  font-size: 45px;
+}
+
+h2 {
+  text-align: left;
+}
+
+p {
+  text-align: center;
+  font-size: 20px;
+  color: #fc0f82;
+}
+
+.column1 {
+  float: left;
+  width: 33.33%;
+
+}
+.column2 {
+  float: right;
+  vertical-align: bottom;
+  width: 33.33%
+}
+
+body {
+  background-image: url(https://www.wikihow.com/images/thumb/a/a3/Survive-an-Encounter-with-an-Ostrich-Step-8-Version-3.jpg/v4-460px-Survive-an-Encounter-with-an-Ostrich-Step-8-Version-3.jpg.webp);
+}
+html {
+  color: white;
+
+}
+
+.bottomleft{
+  position: absolute;
+  bottom: 8px
+  left: 100px;
+}
+
+div {
+  text-align: center;
+  font-size: 30px;
+  color: lime;
+}
