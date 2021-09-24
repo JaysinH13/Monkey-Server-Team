@@ -18,19 +18,19 @@ app.get('/about', function (req, res) {
 });
 
 app.get('/jaysin', function (req, res) {
-  res.render('Jaysin');
+  res.render('jaysin');
 });
 
 app.get('/oley', function (req, res) {
-  res.render('Oley');
+  res.render('oley');
 });
 
 app.get('/john', function (req, res) {
-  res.render('John');
+  res.render('john');
 });
 
 app.get('/christian', function (req, res) {
-  res.render('Christian');
+  res.render('christian');
 });
 
 var server = app.listen(PORT, function () {
