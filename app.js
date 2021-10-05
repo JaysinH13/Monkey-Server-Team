@@ -2,6 +2,10 @@ var express = require('express');
 const expressLayouts = require('express-ejs-layouts')
 var app = express()
 const PORT = 42069
+const fs = require('fs');
+
+var rawdata = fs.readFileSync('profiles.json');
+var profileData = JSON.parse(rawdata);
 
 app.use(express.static('public'))
 app.use('/css', express.static(__dirname + 'public/css'))
@@ -18,44 +22,19 @@ app.get('/about', function (req, res) {
 });
 
 app.get('/jaysin', function (req, res) {
-  res.render('bio', {
-    joe: `<title> Jaysin's Page </title>`,
-    teammember: 'Jaysin',
-    biotext: `<p>Hi my name is Jaysin H, and this is my about page.</p>
-          <p>Im not a huge fan of OneDrive as it can be pretty stupid at at times. </p>
-          <p>Im not to social around people I dont know but around friends I can be talkative.</p>
-          <p>I dont really have any career goals for myself at the moment, but if I had to chose I would say something along the lines with game design.</p>
-          <p>The concept for this game is pretty weird, as it's more on little nods about me. A lot of easter egg ideas. </p>`
-  });
+  res.render('bio', profileData.jaysin);
 });
 
 app.get('/oley', function (req, res) {
-  res.render('bio', {
-    teammember: 'Oley Birkeland',
-    biotext:`<p>My specialties include web design and JavaScript.</p>
-    <p>I hope to start a career as a programmer in the future, possibly as a web or game developer. ඞ</p>`,
-    joe:`Oley's Page`
-  });
+  res.render('bio', profileData.oley);
 });
 
 app.get('/john', function (req, res) {
-  res.render('bio', {
-    joe:`John's Sussy Emporium`,
-    teammember:`John's Page`,
-    biotext:`<p>I hate OneDrive.</p>
-    <p>I play agressive rampart.</p>
-    <p>I want to program 10 ft tall robots to stalk around my house with murderous intent.</p>`
-  });
+  res.render('bio',  profileData.john);
 });
 
 app.get('/christian', function (req, res) {
-  res.render('bio', {
-    joe:`Christian's Dungeon`,
-    teammember:`About Christian Boldt`,
-    biotext:`<p>I tend to like being around people and have conversations about random stuff.</p>
-    <p>I play Plague on DBD.</p>
-    <p>I enjoy to rollerskate and listen to music.</p>`
-  });
+  res.render('bio',  profileData.christian);
 });
 
 var server = app.listen(PORT, function () {
