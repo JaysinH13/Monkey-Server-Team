@@ -1,6 +1,5 @@
 var express = require('express');
 const expressLayouts = require('express-ejs-layouts')
-const fs = require("fs");
 var app = express()
 const PORT = 42069
 const fs = require('fs');
