@@ -3,6 +3,7 @@ const expressLayouts = require('express-ejs-layouts')
 var app = express()
 const PORT = 42069
 const fs = require('fs');
+app.use(express.urlencoded({ extended: true}));
 
 var rawdata = fs.readFileSync('profiles.json');
 var profileData = JSON.parse(rawdata);
@@ -56,6 +57,9 @@ app.get('/feedback', (req, res) => {
   }
 });
 
+app.post('/feedback', function(req, res) {
+  if (req.body.)
+})
 var server = app.listen(PORT, function () {
   var host = server.address().address;
   var port = server.address().port;
