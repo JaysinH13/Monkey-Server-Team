@@ -39,36 +39,31 @@ app.get('/john', function (req, res) {
 app.get('/christian', function (req, res) {
   res.render('bio',  profileData.christian);
 });
-//Sets a feedback directory
+
 app.get('/feedback', (req, res) => {
-  //If the user gives a name and adjective for feedback, mark it down in comment.
-  if (req.query.name && req.query.adjective) {
+    res.render('feedback');
+});
+
+app.post('/feedback', (req, res) => {
+  //If the user gives a name and comment for feedback, mark it down in comment.
+  if (req.body.name && req.body.comment) {
     let comment = {
-      name: req.query.name,
-      adjective: req.query.adjective
+      name: req.body.name,
+      comment: req.body.comment
     };
 
     let data = JSON.parse(fs.readFileSync('comments.json'));
     data.comments.push(comment);
     data = JSON.stringify(data);
     fs.writeFile('comments.json', data, 'utf8', () => console.log("Wrote to file"));
-  } else if (!req.query.name && !req.query.adjective) {
-    console.log("You're missing both parameters. You need \"name\" and \"adjective.\"");
-  } else if (!req.query.name) {
+  } else if (!req.body.name && !req.body.comment) {
+    console.log("You're missing both parameters. You need \"name\" and \"comment.\"");
+  } else if (!req.body.name) {
     console.log("You're missing the \"name\" parameter.");
   } else {
-    console.log("You're missing the \"adjective\" parameter.");
+    console.log("You're missing the \"comment\" parameter.");
   }
 });
-
-app.post('/feedback', function(req, res) {
-  if (req.body.name && req.body.adjective) {
-    let comment = {
-      name: req.query.name
-      adjective: req.query.adjective
-    }
-  }
-})
 
 //When the server is running, writes a message on the command prompt.
 var server = app.listen(PORT, function () {
