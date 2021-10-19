@@ -31,7 +31,8 @@ p {
 }
 
 body {
-  background-image: url(https://www.wikihow.com/images/thumb/a/a3/Survive-an-Encounter-with-an-Ostrich-Step-8-Version-3.jpg/v4-460px-Survive-an-Encounter-with-an-Ostrich-Step-8-Version-3.jpg.webp);
+  background-image: url(https://cdn.vox-cdn.com/uploads/chorus_asset/file/22661971/img20.jpg);
+  background-size: 100%;
 }
 html {
   color: white;
