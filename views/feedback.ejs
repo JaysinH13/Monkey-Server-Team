@@ -18,6 +18,10 @@
     </form>
     <br>
     <h2>Comments</h2>
-    <div id="comments"><%- comments -%></div>
+    <div id="comments">
+      <% for (var i = 0; i < comments.length; i++) { %>
+        <b><%= comments[i].name %>:</b> <%= comments[i].comment %><br>
+      <% } %>
+    </div>
   </body>
 </html>

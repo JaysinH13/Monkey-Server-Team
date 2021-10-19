@@ -10,9 +10,7 @@ var rawdata = fs.readFileSync('profiles.json');
 var profileData = JSON.parse(rawdata);
 
 let commentsJSON = fs.readFileSync('comments.json');
-let comments = JSON.parse(commentsJSON).comments;
-let commentsHTML = {comments: ""};
-comments.forEach(obj => commentsHTML.comments += `<b>${obj.name}:</b> ${obj.comment}<br>`);
+let commentFile = JSON.parse(commentsJSON);
 
 app.use(express.static('public'))
 app.use('/css', express.static(__dirname + 'public/css'))
@@ -46,7 +44,9 @@ app.get('/christian', function (req, res) {
 });
 
 app.get('/feedback', (req, res) => {
-    res.render('feedback', commentsHTML);
+    res.render('feedback', {
+      comments: commentFile.comments
+    });
 });
 
 app.post('/feedback', (req, res) => {
