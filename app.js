@@ -9,11 +9,6 @@ app.use(express.urlencoded({ extended: true}));
 var rawdata = fs.readFileSync('profiles.json');
 var profileData = JSON.parse(rawdata);
 
-let commentsJSON = fs.readFileSync('comments.json');
-let comments = JSON.parse(commentsJSON).comments;
-let commentsHTML = {comments: ""};
-comments.forEach(obj => commentsHTML.comments += `<b>${obj.name}:</b> ${obj.comment}<br>`);
-
 app.use(express.static('public'))
 app.use('/css', express.static(__dirname + 'public/css'))
 
@@ -46,7 +41,11 @@ app.get('/christian', function (req, res) {
 });
 
 app.get('/feedback', (req, res) => {
-    res.render('feedback', commentsHTML);
+  var commentsJSON = fs.readFileSync('comments.json');
+  var commentFile = JSON.parse(commentsJSON);
+  res.render('feedback', {
+    comments: commentFile.comments
+  });
 });
 
 app.post('/feedback', (req, res) => {
@@ -68,6 +67,8 @@ app.post('/feedback', (req, res) => {
   } else {
     console.log("You're missing the \"comment\" parameter.");
   }
+
+  res.redirect('/feedback');
 });
 
 //When the server is running, writes a message on the command prompt.
