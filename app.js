@@ -71,6 +71,12 @@ app.post('/feedback', (req, res) => {
   res.redirect('/feedback');
 });
 
+app.post('/clearcomments', (req, res) => {
+  let clearedObj = JSON.stringify({comments: []});
+  fs.writeFile('comments.json', clearedObj, 'utf8', () => console.log("Cleared comments"));
+  res.redirect('/feedback');
+});
+
 //When the server is running, writes a message on the command prompt.
 var server = app.listen(PORT, function () {
   var host = server.address().address;
