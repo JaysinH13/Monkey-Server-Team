@@ -1,6 +1,6 @@
 .button {
-  margin-top: 50px;
-text-align: bottomleft;
+  margin-top: 2px;
+  text-align: bottomleft;
 }
 
 h1 {
@@ -16,7 +16,7 @@ h2 {
 p {
   text-align: center;
   font-size: 20px;
-  color: lime;
+  color: #ba0b37;
 }
 
 .column1 {
@@ -35,7 +35,7 @@ body {
   background-size: 100%;
 }
 html {
-  color: white;
+  color: #ba0b37;
 
 }
 
@@ -45,8 +45,7 @@ html {
   left: 100px;
 }
 
-div {
-  text-align: bottomleft;
-  font-size: 30px;
-  color: lime;
+.content{
+  width:80%;
+  margin:auto;
 }

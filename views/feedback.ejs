@@ -4,26 +4,33 @@
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="feedback.css">
+    <style media="screen">
+      div {
+        border: 2px solid #ba0b37;
+      }
+    </style>
   </head>
   <body>
+    <div class="content">
+    <div class="">
     <form method="post">
       <input type="text" name="name" placeholder="Student's name"><br><br>
       <textarea name="comment" placeholder="Comment"></textarea><br><br>
       <input type="submit">
     </form>
-    <br>
-    <form method="post" action="/clearcomments">
-      <input type="submit" value="Clear comments">
-    </form>
-    <br>
-    <h2>Comments</h2>
-    <div id="comments">
-      <% for (var i = 0; i < comments.length; i++) { %>
-        <b><%= comments[i].name %>:</b> <%= comments[i].comment %><br>
-      <% } %>
-    </div>
     <form class="button" action="/">
       <input type="submit" value="Home" />
     </form>
+  </div>
+    <div id="comments">
+      <h2>Comments</h2>
+      <% for (var i = 0; i < comments.length; i++) { %>
+        <b><%= comments[i].name %>:</b> <%= comments[i].comment %><br>
+      <% } %>
+      <form method="post" action="/clearcomments">
+        <input type="submit" value="Clear comments">
+      </form>
+    </div>
+  </div>
   </body>
 </html>
