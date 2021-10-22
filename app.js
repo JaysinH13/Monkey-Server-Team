@@ -39,7 +39,7 @@ app.get('/john', function (req, res) {
 app.get('/christian', function (req, res) {
   res.render('bio',  profileData.christian);
 });
-
+//Feedback page
 app.get('/feedback', (req, res) => {
   var commentsJSON = fs.readFileSync('comments.json');
   var commentFile = JSON.parse(commentsJSON);
@@ -47,15 +47,14 @@ app.get('/feedback', (req, res) => {
     comments: commentFile.comments
   });
 });
-
+//If the user gives a name and comment for feedback, mark it down in comment.
 app.post('/feedback', (req, res) => {
-  //If the user gives a name and comment for feedback, mark it down in comment.
   if (req.body.name && req.body.comment) {
     let comment = {
       name: req.body.name,
       comment: req.body.comment
     };
-
+    //Sets some parameters. If you don't have both a name and a comment, it doesn't allow you to post anything.
     let data = JSON.parse(fs.readFileSync('comments.json'));
     data.comments.push(comment);
     data = JSON.stringify(data);
