@@ -81,6 +81,7 @@ input.small {
   background: #0005;
   line-height: 2;
   overflow: auto;
+  color: #f05;
 }
 
 .column1 {
